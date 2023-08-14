@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "app.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ],
+    "env": {
+        "DB_HOST": "147.139.210.135",
+        "DB_USER": "arif",
+        "DB_PASSWORD": "m312112",
+        "DB_NAME": "arif01",
+        "DB_PORT": "5432",
+        "SECRET_KEY": "confidential",
+        "CD_NAME": "dkiftjabl",
+        "CD_API_KEY": "125828645953448",
+        "CD_API_SECRET": "4F8VfovCbRDeax0nVLUxlQ50LzQ",
+        "EMAIL": "noreply@pijarproject.site",
+        "PASS": "yqJN1sCZcrWB"
+    }
+}
