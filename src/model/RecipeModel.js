@@ -109,7 +109,7 @@ const getRecipeById = async (id) => {
 const getRecipeByUsers = async (id) => {
     console.log("model recipe by users_id ->", id);
     return new Promise((resolve, reject) =>
-        Pool.query(`SELECT * FROM recipe WHERE users_id=${id} DESC`, (err, result) => {
+        Pool.query(`SELECT * FROM recipe WHERE users_id=${id} ORDER BY id DESC`, (err, result) => {
             if (!err) {
                 resolve(result);
             } else {
