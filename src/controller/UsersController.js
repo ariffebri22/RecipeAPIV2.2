@@ -122,8 +122,8 @@ const UsersController = {
 
             console.log("id data");
             console.log(users_id);
-            console.log(dataUsersId.rows[0].users_id);
-            if (users_id !== dataUsersId.rows[0].users_id && type !== "admin") {
+            console.log(dataUsersId.rows[0].id);
+            if (users_id !== dataUsersId.rows[0].id && type !== "admin") {
                 return res.status(403).json({ status: 403, message: "Recipe does not belong to you" });
             }
 
@@ -217,8 +217,9 @@ const UsersController = {
 
             console.log("id data");
             console.log(users_id);
-            console.log(dataUsersId.rows[0].users_id);
-            if (users_id !== dataUsersId.rows[0].users_id && type !== "admin") {
+            console.log(id);
+            console.log(dataUsersId.rows[0].id);
+            if (users_id !== dataUsersId.rows[0].id && type !== "admin") {
                 return res.status(403).json({ status: 403, message: "You can't access data that doesn't belong to you, except admin." });
             }
 

@@ -76,3 +76,5 @@ SELECT re.id, re.title, re.ingredients, re.photo, re.category_id, cat.name AS ca
             JOIN users us ON re.users_id = us.id
             WHERE re.id=161
             ORDER BY re.id DESC;
+
+            SELECT * FROM users WHERE id=36;
