@@ -7,6 +7,8 @@ const argon2 = require("argon2");
 const nodemailer = require("nodemailer");
 const cloudinary = require("../config/cloud");
 const xss = require("xss");
+const path = require("path");
+const photoDefault = "../../assets/img/iconuser.png";
 
 const secretKey = process.env.SECRET_KEY;
 
@@ -150,9 +152,9 @@ const UsersController = {
             console.log("post data");
             console.log(type, username, password, email);
 
-            if (!req.isFileValid) {
-                return res.status(404).json({ message: req.isFileValidMessage });
-            }
+            // if (!req.isFileValid) {
+            //     return res.status(404).json({ message: req.isFileValidMessage });
+            // }
 
             if (!type || !username || !password || !email) {
                 return res.status(400).json({ status: 400, message: "input type, username, password, email required" });
@@ -170,10 +172,16 @@ const UsersController = {
 
             const hashedPassword = await hash(password);
 
-            const resultt = await cloudinary.uploader.upload(photo.path, {
-                use_filename: true,
-                folder: "RecipeAPIV2",
-            });
+            let resultt = {};
+            if (photo) {
+                resultt = await cloudinary.uploader.upload(photo.path, {
+                    use_filename: true,
+                    folder: "RecipeAPIV2",
+                });
+            } else {
+                resultt.secure_url = null;
+                resultt.public_id = null;
+            }
 
             console.log("data");
             const data = {
