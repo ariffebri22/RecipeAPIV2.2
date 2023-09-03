@@ -308,7 +308,9 @@ const UsersController = {
                             }
                         });
 
-                        return res.status(200).json({ status: 200, message: "Login Successfully", token, username: `${dataUsers.rows[0].username}`, photo: `${dataUsers.rows[0].photo}`, email: `${dataUsers.rows[0].email}` });
+                        return res
+                            .status(200)
+                            .json({ status: 200, message: "Login Successfully", token, id: `${dataUsers.rows[0].id}`, username: `${dataUsers.rows[0].username}`, photo: `${dataUsers.rows[0].photo}`, email: `${dataUsers.rows[0].email}` });
                     } else {
                         return res.status(401).json({ status: 401, message: "Wrong password" });
                     }
