@@ -112,7 +112,8 @@ const getRecipeByUsers = async (id) => {
         Pool.query(
             `SELECT re.id, re.title, re.ingredients, re.photo, re.category_id, cat.name AS category, re.users_id, us.username AS creator, us.photo AS creator_photo, re.created_at, re.public_id
             FROM recipe re
-            JOIN category cat ON re.category_id = cat.id 
+            JOIN category cat ON re.category_id = cat.id
+            JOIN users us ON re.users_id = us.id
             WHERE users_id=${id} 
             ORDER BY re.id DESC`,
             (err, result) => {

@@ -78,3 +78,9 @@ SELECT re.id, re.title, re.ingredients, re.photo, re.category_id, cat.name AS ca
             ORDER BY re.id DESC;
 
             SELECT * FROM users WHERE id=36;
+
+            SELECT re.id, re.title, re.ingredients, re.photo, re.category_id, cat.name AS category, re.users_id, us.username AS creator, us.photo AS creator_photo, re.created_at, re.public_id
+            FROM recipe re
+            JOIN category cat ON re.category_id = cat.id 
+            WHERE users_id=44 
+            ORDER BY re.id DESC;
