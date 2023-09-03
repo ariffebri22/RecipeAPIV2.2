@@ -189,8 +189,8 @@ const UsersController = {
                 username: xss(username),
                 password: xss(hashedPassword),
                 email: xss(email),
-                photo: resultt.secure_url,
-                public_id: resultt.public_id,
+                photo: resultt.secure_url ?? "https://res.cloudinary.com/dkiftjabl/image/upload/v1693732210/RecipeAPIV2/iconuser_wrerbn.png",
+                public_id: resultt.public_id ?? "RecipeAPIV2/iconuser_wrerbn",
             };
 
             console.log(data);
