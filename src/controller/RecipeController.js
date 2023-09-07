@@ -40,7 +40,7 @@ const RecipeController = {
             if (dataRecipe) {
                 res.status(200).json({ status: 200, message: "get data recipe success", data: dataRecipe.rows, pagination });
             } else {
-                res.status(404).json({ status: 404, message: "Recipe data not found", data: [] });
+                res.status(404).json({ status: 200, message: "Recipe data not found", data: [] });
             }
         } catch (err) {
             console.error(err);
@@ -72,7 +72,7 @@ const RecipeController = {
             console.log(dataRecipeId);
 
             if (!dataRecipeId.rows[0]) {
-                return res.status(404).json({ status: 404, message: "Recipe data not found", data: [] });
+                return res.status(404).json({ status: 200, message: "Recipe data not found", data: [] });
             }
 
             res.status(200).json({ status: 200, message: "get data recipe success", data: dataRecipeId.rows[0] });
@@ -96,7 +96,7 @@ const RecipeController = {
             console.log(dataRecipeUsers);
 
             if (!dataRecipeUsers.rows[0]) {
-                return res.status(404).json({ status: 404, message: "Recipe data not found", data: [] });
+                return res.status(404).json({ status: 200, message: "Recipe data not found", data: [] });
             }
 
             res.status(200).json({ status: 200, message: "get data recipe success", data: dataRecipeUsers.rows });
