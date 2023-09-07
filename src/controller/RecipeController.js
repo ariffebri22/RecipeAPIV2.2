@@ -96,7 +96,7 @@ const RecipeController = {
             console.log(dataRecipeUsers);
 
             if (!dataRecipeUsers.rows[0]) {
-                return res.status(404).json({ status: 200, message: "Recipe data not found", data: [] });
+                return res.status(200).json({ status: 200, message: "Recipe data not found", data: [] });
             }
 
             res.status(200).json({ status: 200, message: "get data recipe success", data: dataRecipeUsers.rows });
